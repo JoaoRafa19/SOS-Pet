@@ -1,0 +1,52 @@
+.icon{
+    
+    width: 50px;
+    height: 42px;
+    padding: 5px;
+    border-radius: 90px;
+}
+footer {
+    position:relative;
+    left:0px;
+    bottom:0px;
+    
+    justify-self: center;
+    text-align: center;
+}
+.titulo a{
+    color: rgb(69, 71, 73);
+    position:relative ;
+    left:0px;
+    top: 0%;
+    width:100%;
+    justify-self: center;
+    text-align: center;
+
+}
+.titulo a:hover{
+    color: rgb(69, 71, 73);
+    stroke: none;
+    text-decoration: none;
+}
+
+#logout{
+    position: relative;
+    float: right;
+    top: 0%;
+}
+
+#menu a{
+    color: black;
+    background-color: rgba(0, 0, 0, 0.356);
+    transition: 0.6s;
+}
+#menu a:hover{
+
+    color: white;
+    background-color:  rgba(0, 0, 0, 0.671);
+
+}
+#foto{
+    width: 20rem;
+    height: 20rem;
+}

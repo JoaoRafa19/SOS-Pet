@@ -1,0 +1,27 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>SOS Pet</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body >
+    
+    {% block content %}
+
+    {% endblock %}
+    
+    <br>
+    <footer class="jumbotron text center" style="background-color: rgba(126, 126, 126, 0.726);">
+        Criado por : João Pedro Rafael
+        <a href="https://github.com/JoaoRafa19"><img class="icon" src="{% static 'img/githubicon.png'%}"></a>
+        <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-silva-27a354189/"><img class="icon" src="{% static 'img/linkedin.png' %}"></a>
+    </footer>
+</body>
+</html>

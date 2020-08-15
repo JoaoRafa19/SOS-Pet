@@ -1,0 +1,49 @@
+{% extends 'modelPage.html' %}
+{% block content %}
+    <div class="container jumbotron">
+        <h1 class="titulo"><a href="{% url 'index' %}">SOS PET</a></h1>
+        <a href="/logout/" id="logout" type="button" class="btn btn-danger ">Logout</a>
+    </div>
+    <div>
+        <ul class="nav justify-content-center " id="menu" >
+            <li class="nav-item">
+                <a type="button" class="btn btn-light" href="{% url 'list' %}">Todos</a>
+            </li>
+            <li class="nav-item">
+                <a type="button" class="btn btn-light" href="{% url 'list_user' %}">Meus</a>
+            </li>
+            <li class="nav-item">
+                <a type="button" class="btn btn-light" href="{% url 'registro_pet' %}">Cadastrar</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container mt-5 ">
+        <div class="row">
+            <div class="col-sm-5">
+                <img class="card-img-bottom" style="width: 29rem;" src="{{ pet.photo.url }}" alt="Imagem de capa do card">
+            </div>
+            <div class="col-sm-5">
+                <div class="ml-auto card">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome: {{ pet.nome }}</h5>
+                        {% if pet.idade > 0 %}
+                            <p class="card-text">Idade: {{ pet.idade }}</p>
+                        {% endif %}
+                        <p class="card-text">Cidade: {{ pet.cidade }}</p>
+                        <p class="card-text"><b>Telefone:</b> {{ pet.telefone }}</p>
+                        <p class="card-text">Email: {{ pet.email }} </p>
+                        <p class="card-text">{{ pet.descricao }}</p>
+                        <p class="card-text">Usuário: {{ pet.usuario }}</p>
+                        <p class="card-text"><small class="text-muted">Criado em: {{ pet.data_criacao }}</small></p>
+                        {% if pet.usuario == request.user %}
+                            <a href="{% url  'editar' pet.id %} " class="btn btn-primary">Editar</a>
+                            <a type="button" class="btn btn-danger" href="{% url 'delete' pet.id %}">
+                                Excluir
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

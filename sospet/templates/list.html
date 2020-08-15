@@ -1,0 +1,50 @@
+{% extends 'modelPage.html' %}
+
+{% block content %}
+    <div class="container jumbotron">
+        <h1 class="titulo"><a href="{% url 'index' %}">SOS PET</a></h1>
+        <a href="/logout/" id="logout" type="button" class="btn btn-danger ">Logout</a>
+        
+    </div>
+    <div>
+        
+
+        <ul class="nav justify-content-center " id="menu" >
+            <li class="nav-item">
+                <a type="button" class="btn btn-light" href="{% url 'list' %}">Todos</a>
+            </li>
+            <li class="nav-item">
+                <a type="button" class="btn btn-light" href="{% url 'list_user' %}">Meus</a>
+            </li>
+            <li class="nav-item">
+                <a type="button" class="btn btn-light" href="{% url 'registro_pet' %}">Cadastrar</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container mt-5 mb-5">
+        
+        <div class="row align-center" style="padding-top: 25px;">
+            {% for pet in pets %}
+                <div class="col-sm-4 mb-5">
+                    <div class="card" id="card" style="width: 20rem; ">
+                        <img class="card-img-top" id="foto" src="{{ pet.photo.url }}" alt="Imagem de capa do card">
+                        <div class="card-body">
+                          <h5 class="card-title">Olá sou: {{ pet.nome }}</h5>
+                          <p class="card-text"> {{ pet.descricao }}</p>
+                          <p class="card-text">Sou de: {{ pet.cidade }}</p>
+                          {% if pet.idade != 0 %}
+                            <p class="card-text">Tenho: {{ pet.idade }} anos de idade</p>
+                          {% endif %}
+                          <a href="{% url 'detalhes'  pet.id %} " class="btn btn-primary">Detalhes</a>
+                        </div>
+                      </div>
+                </div>
+
+            {% endfor %}
+        </div>
+            
+    </div>
+
+
+{% endblock %}
